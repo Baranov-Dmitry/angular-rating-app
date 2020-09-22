@@ -1,0 +1,90 @@
+<div class="pad-base">
+  <button
+    mat-raised-button
+    color="primary"
+    class="margin-base"
+    (click)="openDialog()"
+  >
+    Добавить телефон
+  </button>
+
+  <button
+    mat-raised-button
+    color="primary"
+    class="margin-base"
+  >
+    Reload
+  </button>
+</div>
+
+<div class="container pad-base">
+  <table *ngIf="phones; else loading" class="table">
+    <thead>
+    <tr>
+      <th>Название телефона</th>
+      <th>Характеристики</th>
+      <th>Рейтинг</th>
+      <th>Действие</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let phone of phones">
+      <td>{{ phone.name }}</td>
+      <td>
+        <table style="width:100%">
+          <tr>
+            <td>{{phone.resolution}}</td>
+          </tr>
+          <tr>
+            <td>{{phone.processor}}</td>
+          </tr>
+          <tr>
+            <td>{{phone.camera}}</td>
+          </tr>
+          <tr>
+            <td>{{phone.price}}</td>
+          </tr>
+        </table>
+      </td>
+      <td>
+        <table style="width:100%">
+          <tr>
+            <td>
+              <span class="plus-minus unselectable" (click)="stepUp($event, 'resolution', phone)">+</span>
+              <span class="unselectable">{{phone.rating.resolution}}</span>
+              <span class="plus-minus unselectable" (click)="stepDown($event, 'resolution', phone)">-</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="plus-minus unselectable" (click)="stepUp($event, 'processor', phone)">+</span>
+              <span class="unselectable">{{phone.rating.processor}}</span>
+              <span class="plus-minus unselectable" (click)="stepDown($event, 'processor', phone)">-</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="plus-minus unselectable" (click)="stepUp($event, 'camera', phone)">+</span>
+              <span class="unselectable">{{phone.rating.camera}}</span>
+              <span class="plus-minus unselectable" (click)="stepDown($event, 'camera', phone)">-</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="plus-minus unselectable" (click)="stepUp($event, 'price', phone)">+</span>
+              <span class="unselectable">{{phone.rating.price}}</span>
+              <span class="plus-minus unselectable" (click)="stepDown($event, 'price', phone)">-</span>
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td>
+        <button mat-raised-button color="primary" class="table__button" (click)="update($event, phone)">Обновить</button>
+        <button mat-raised-button color="primary" class="table__button" (click)="delete(phone.id)">Удалить</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <ng-template #loading>Loading.....</ng-template>
+</div>

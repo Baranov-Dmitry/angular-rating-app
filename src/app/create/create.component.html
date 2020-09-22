@@ -1,0 +1,149 @@
+<!--  <p>What's your favorite animal?</p>-->
+<!--  <mat-form-field>-->
+<!--    <mat-label>Favorite Animal</mat-label>-->
+<!--    <input matInput [(ngModel)]="data.animal">-->
+<!--  </mat-form-field>-->
+
+<h1 mat-dialog-title class="ta-center">Добавить телефон</h1>
+<div mat-dialog-content>
+  <form class="card" [formGroup]="form" (ngSubmit)="submit()">
+    <div>
+      <mat-form-field [ngClass]="{invalid: form.get('name').touched && form.get('name').invalid}"
+                      class="example-full-width">
+        <mat-label for="name">Название телефона</mat-label>
+        <input matInput id="name" type="name" formControlName="name">
+      </mat-form-field>
+
+      <div *ngIf="form.get('name').touched && form.get('name').invalid" class="validation">
+        <!-- form.get('email').errors array of results validation functions  -->
+        <small
+          *ngIf="form.get('name').errors.required ">
+          Введите название телефона
+        </small>
+
+        <small
+          *ngIf="form.get('name').errors.minlength">
+          Название телефона должно быть не менее
+          {{ form.get('name').errors.minlength.requiredLength }}
+          символов а сейчас он
+          {{ form.get('name').errors.minlength.actualLength }}
+          символов
+        </small>
+
+      </div>
+    </div>
+
+    <h3>Хорактеристики</h3>
+
+    <div>
+      <mat-form-field [ngClass]="{invalid: form.get('resolution').touched && form.get('resolution').invalid}"
+                      class="example-full-width">
+        <mat-label for="resolution">Разрешение экрана</mat-label>
+        <input matInput id="resolution" type="resolution" formControlName="resolution">
+      </mat-form-field>
+
+      <div *ngIf="form.get('resolution').touched && form.get('resolution').invalid" class="validation">
+        <!-- form.get('email').errors array of results validation functions  -->
+        <small
+          *ngIf="form.get('resolution').errors.required ">
+          Введите Разрешение экрана
+        </small>
+
+        <small
+          *ngIf="form.get('resolution').errors.minlength">
+          Разрешение экрана должно быть не менее
+          {{ form.get('resolution').errors.minlength.requiredLength }}
+          символов а сейчас он
+          {{ form.get('resolution').errors.minlength.actualLength }}
+          символов
+        </small>
+
+      </div>
+    </div>
+
+    <div>
+      <mat-form-field [ngClass]="{invalid: form.get('processor').touched && form.get('processor').invalid}"
+                      class="example-full-width">
+        <mat-label for="processor">Процессор</mat-label>
+        <input matInput id="processor" type="processor" formControlName="processor">
+      </mat-form-field>
+
+      <div *ngIf="form.get('processor').touched && form.get('processor').invalid" class="validation">
+        <!-- form.get('email').errors array of results validation functions  -->
+        <small
+          *ngIf="form.get('processor').errors.required ">
+          Введите название Процессора
+        </small>
+
+        <small
+          *ngIf="form.get('processor').errors.minlength">
+          Название Процессора должно быть не менее
+          {{ form.get('processor').errors.minlength.requiredLength }}
+          символов а сейчас он
+          {{ form.get('processor').errors.minlength.actualLength }}
+          символов
+        </small>
+
+      </div>
+    </div>
+
+    <div>
+      <mat-form-field [ngClass]="{invalid: form.get('camera').touched && form.get('camera').invalid}"
+                      class="example-full-width">
+        <mat-label for="camera">Камера</mat-label>
+        <input matInput id="camera" type="camera" formControlName="camera">
+      </mat-form-field>
+
+      <div *ngIf="form.get('camera').touched && form.get('camera').invalid" class="validation">
+        <!-- form.get('email').errors array of results validation functions  -->
+        <small
+          *ngIf="form.get('camera').errors.required ">
+          Введите хорактеристики камеры
+        </small>
+
+        <small
+          *ngIf="form.get('camera').errors.minlength">
+          Хорактеристики камеры должно быть не менее
+          {{ form.get('camera').errors.minlength.requiredLength }}
+          символов а сейчас он
+          {{ form.get('camera').errors.minlength.actualLength }}
+          символов
+        </small>
+
+      </div>
+    </div>
+
+    <div>
+      <mat-form-field
+        [ngClass]="{invalid: form.get('price').touched && form.get('price').invalid}"
+        appearance="fill"
+      >
+        <mat-label for="name">Цена</mat-label>
+        <input matInput id="price" type="number" formControlName="price">
+      </mat-form-field>
+
+      <div *ngIf="form.get('price').touched && form.get('price').invalid" class="validation">
+        <small
+          *ngIf="form.get('price').errors.required ">
+          Введите цену телефона
+        </small>
+      </div>
+    </div>
+    <div class="actions">
+      <div mat-dialog-actions>
+        <button
+          mat-raised-button color="primary"
+          type="submit"
+          class="submit"
+          [disabled]="form.invalid"
+        >
+          Добавить
+        </button>
+        <button mat-raised-button color="primary" mat-dialog-close>Закрыть</button>
+      </div>
+    </div>
+
+  </form>
+</div>
+
+
