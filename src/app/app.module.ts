@@ -13,15 +13,17 @@ import {HttpClientModule} from '@angular/common/http';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
-import {PhonesService} from './servises/phones.service';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ChartPieComponent } from './chart-pie/chart-pie.component';
+import {ChartsModule} from 'ng2-charts';
 
 @NgModule({
   declarations: [
     AppComponent,
     PageNotFoundComponent,
     ViewPhoneComponent,
-    CreateComponent
+    CreateComponent,
+    ChartPieComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,9 @@ import {PhonesService} from './servises/phones.service';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -57,7 +57,7 @@ export class CreateComponent implements OnInit {
       price: this.form.value.price,
       rating: RATING_DEFAULT
     };
-
+    console.log(phone);
     this.phonesService.create(phone).subscribe((response) => {
       this.form.reset();
       this.dialogRef.close(response);

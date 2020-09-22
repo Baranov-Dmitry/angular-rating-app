@@ -15,5 +15,12 @@ export interface Phone {
   processor: string;
   camera: string;
   price: number;
-  rating?: {};
+  rating?: Rating;
+}
+
+export interface Rating {
+  resolution: number;
+  processor: number;
+  camera: number;
+  price: number;
 }

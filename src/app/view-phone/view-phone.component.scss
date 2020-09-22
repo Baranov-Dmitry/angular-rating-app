@@ -11,6 +11,15 @@
   margin: 0 0.5rem;
 }
 
+.flex {
+  display: flex;
+}
+
+.main-width {
+  width: 1300px;
+  margin: 0 auto;
+}
+
 .phone {
   width: 800px;
   display: flex;
@@ -32,7 +41,7 @@
 }
 
 .table {
-  width: 550px;
+  width: 700px;
   text-align: center;
 }
 
