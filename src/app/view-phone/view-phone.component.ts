@@ -18,7 +18,6 @@ export class ViewPhoneComponent implements OnInit, OnDestroy {
     responsive: true,
   };
   pieChartLabels: Label[] = Object.keys(RATING_DEFAULT);
-  // pieChartData: SingleDataSet = [24, 20, 40, 50];
   pieChartData: SingleDataSet;
   pieChartType: ChartType = 'pie';
   pieChartLegend = true;
@@ -45,7 +44,7 @@ export class ViewPhoneComponent implements OnInit, OnDestroy {
 
   chartCalc(): void {
     this.values = {...RATING_DEFAULT};
-    this.phones.forEach((item, i) => {
+    this.phones.forEach((item) => {
       Object.keys(item.rating).forEach(key => {
         this.values[key] = this.values[key] + item.rating[key];
       });
@@ -101,7 +100,6 @@ export class ViewPhoneComponent implements OnInit, OnDestroy {
     this.uSub = this.phonesServices.update(phone).subscribe(() => {
       target.disabled = false;
       this.chartCalc();
-      console.log('Rating was updated');
     });
   }
 }

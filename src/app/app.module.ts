@@ -14,7 +14,6 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
-import { ChartPieComponent } from './chart-pie/chart-pie.component';
 import {ChartsModule} from 'ng2-charts';
 
 @NgModule({
@@ -22,8 +21,7 @@ import {ChartsModule} from 'ng2-charts';
     AppComponent,
     PageNotFoundComponent,
     ViewPhoneComponent,
-    CreateComponent,
-    ChartPieComponent
+    CreateComponent
   ],
   imports: [
     BrowserModule,

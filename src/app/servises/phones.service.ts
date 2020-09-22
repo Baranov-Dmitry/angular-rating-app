@@ -45,7 +45,6 @@ export class PhonesService {
   }
 
   update(phone: Phone): Observable<Phone> {
-    console.log(phone);
     return this.http.patch<Phone>(`${environment.fbDBUrl}/phones/${phone.id}.json`, phone);
   }
 
