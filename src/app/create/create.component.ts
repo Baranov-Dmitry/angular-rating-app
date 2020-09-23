@@ -26,7 +26,8 @@ export class CreateComponent implements OnInit {
       ]),
       resolution: new FormControl(null, [
         Validators.required,
-        Validators.minLength(3)
+        Validators.minLength(3),
+        Validators.pattern(/^[0-9][0-9]*x[0-9][0-9]*$/)
       ]),
       processor: new FormControl(null, [
         Validators.required,
@@ -57,7 +58,6 @@ export class CreateComponent implements OnInit {
       price: this.form.value.price,
       rating: RATING_DEFAULT
     };
-    console.log(phone);
     this.phonesService.create(phone).subscribe((response) => {
       this.form.reset();
       this.dialogRef.close(response);

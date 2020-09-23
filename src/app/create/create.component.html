@@ -50,6 +50,11 @@
         </small>
 
         <small
+          *ngIf="form.get('resolution').errors.pattern">
+          Резрешение экрнана доолжно быть в формате "9999x9999"
+        </small>
+
+        <small
           *ngIf="form.get('resolution').errors.minlength">
           Разрешение экрана должно быть не менее
           {{ form.get('resolution').errors.minlength.requiredLength }}
